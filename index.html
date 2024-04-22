@@ -1,40 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Canvas Editor</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math & Date Objects</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 100vh;
+            flex-direction: column;
+            background-color: slateblue;
+        }
+        h1{
+            margin-bottom: 20px;
+            background-color: aqua;
+            border: 5px solid red;
+            border-radius: 10px;
+            padding: 4px;
+        }
+        .clock{
+            border: 1px solid purple;
+            
+            padding: 15px 30px;
+            border-radius: 15px;
+            flex-direction: column;
+            background-color: black;
+            
+           
+        }
+        .hourBox,
+        .minuteBox,
+        .secondBox{
+            border: 1px solid purple;
+            margin: 5px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: white;
+            width: 50px;
+            height: 50px;
+            font-size: 30px;
+            font-weight: 600;
+            
+            
+        }
+        .hourLabel,
+        .minuteLabel,
+        .secondLabel{
+            color: white;
+            width: 75px;
+            margin: 10px;
+        
+            
+        }
+    .flexbox{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    </style>
 </head>
-<body>
-  <div style="display: flex;" class="container">
-    <div class="canvas-container">
-      <canvas id="canvas" width="1080" height="1080"></canvas>
-      <br>
+<body class="flexbox">
+    <h1>My Digital Clock</h1> 
+    <div class="clock flexbox">
+            <div class="flexbox">
+                <div id="hrBox" class="hourBox flexbox">-</div>
+                <div id="minBox" class="minuteBox flexbox">-</div>
+                <div id="secBox" class="secondBox flexbox">-</div>
+            </div>
+            <div class="flexbox">
+                <div class="hourLabel flexbox">hour</div>
+                <div class="minuteLabel flexbox">minute</div>
+                <div class="secondLabel flexbox">second</div>
+            </div>
     </div>
-    <!-- ************************************** -->
-      
-    <!-- **************************************** -->
-    <div class="controls">
-        <div class="image">
-            <input type="file" id="imageInput" accept="image/*">
-          </div>
-          
-      <h4>Edit contents</h4>
-      <h4>Ad content</h4>
-      <input type="text" id="captionInput" placeholder="Enter caption text">
+    <script>
+        
 
-      <h4>CTA</h4>
-      <input type="text" id="ctaInput" placeholder="Enter call to action text">
-      <h4>Choose your color</h4>
-      <input type="color" id="bgColorInput" value="#0369A1" value="#0369A1">
-      
-      <!-- <h2>Recent Colors</h2>
-      <div id="recentColors"></div> -->
-      <!-- <h2>Custom Color</h2> -->
-      <input type="color" id="customColorInput" value="#ffffff">
-    </div>
-  </div>
-  <script src="script.js" defer></script>
+        let hourBox = document.getElementById("hrBox");
+        let minBox = document.getElementById("minBox");
+        let secBox = document.getElementById("secBox");
+
+        function implementDate(){
+            let dt = new Date();
+        let hour = dt.getHours();
+        let minute = dt.getMinutes();
+        let seconds = dt.getSeconds();
+
+            hourBox.innerText = hour;
+            minBox.innerText = minute;
+            secBox.innerText = seconds;
+        }
+
+        setInterval(implementDate, 1000)
+        // let dt = new Date(2024, 4, 21, 12, 23, 34);
+        // let dt = new Date();
+        // console.log(dt. getDate());
+        // console.log(dt. getDay());
+        // console.log(dt. getFullYear());
+        // console.log(dt);
+        let math = Math;
+        console.log(math);
+    </script>
+    
 </body>
 </html>
